@@ -1,0 +1,29 @@
+Openshift Console customization demo 
+
+- Mudando o logo e o tab name da Console
+
+Insert logo into a configmap
+  oc create configmap console-custom-logo --from-file /home/basso/Documents/workdir/manifests/console-customization/shadowman.png -n openshift-config
+
+Edit the web console operator configuration file to include the custom logo  
+  oc edit consoles.operator.openshift.io cluster
+spec:
+  customization:
+    customLogoFile:
+      key: shadowman.png
+      name: console-custom-logo
+    customProductName: Shadowman OCP!
+    
+Check if console pods arre newly created
+  oc get pods -n openshift-console 
+
+Check if the operator is running
+  oc get clusteroperator console -o yaml 
+
+- Adicionando links ao application menu
+  Create a customResourceDefinition 
+    oc create -f application-link.yaml
+
+- Adicionando um banner de notificação a web console
+  Create a customResourceDefinition
+    oc create -f console-banner.yaml

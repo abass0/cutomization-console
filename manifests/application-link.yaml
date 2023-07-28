@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: application-menu-link-1
+spec:
+  href: 'https://www.bassdino.com'
+  location: ApplicationMenu
+  text: Bassdino
+  applicationMenu:
+    section: To my baby
+    # image that is 24x24 in size
+    imageURL: https://raw.githubusercontent.com/abass0/bassdino/main/public/assets/favicon.ico

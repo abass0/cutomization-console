@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: console-banner
+spec:
+  text: Click here to see more amazing stuff from Red Hat Developers!
+  location: BannerTop 
+  link:
+    href: 'https://developers.redhat.com/'
+    text: link
+  color: '#fff'
+  backgroundColor: '#000'
